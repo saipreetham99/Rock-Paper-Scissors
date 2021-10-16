@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock-Paper-Scissors</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             computerSelection = computerPlay().toLowerCase();
             playerSelection = playerSelection.toLowerCase();
             if (computerSelection == playerSelection) {
-                alert(` Player Selection ${playerSelection}. Computer Selection ${computerSelection}.Ah Shit! here we go again`);
+                alert(` Player Selected ${playerSelection}. Computer chose ${computerSelection}.Ah Shit! here we go again`);
                 return `Draw  Machine Score: ${cScore}. Player Score: ${pScore}`;
             } else if ((computerSelection == 'paper' && playerSelection == 'rock')
                 || (computerSelection == 'rock' && playerSelection == 'scissors')
@@ -36,9 +36,9 @@
             }
         }
         function getInput(){
-            playerSelection=prompt('Rock,Paper...Scissors?','');
+            window.focus();
+            playerSelection=prompt('Rock,Paper...Scissors?','');           
             console.log(playRound(playerSelection,computerSelection));
-        
         }
         function game() {
             cScore=0;
