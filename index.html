@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = ['Rock', 'Paper', 'Scissors'];
+        let pScore ;
+        let cScore ;
+        let computerSelection;
+        let playerSelection;
+        function computerPlay() {
+            return array[Math.floor(Math.random() * 3)];
+        };
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computerPlay().toLowerCase();
+            playerSelection = playerSelection.toLowerCase();
+            if (computerSelection == playerSelection) {
+                alert(` Player Selection ${playerSelection}. Computer Selection ${computerSelection}.Ah Shit! here we go again`);
+                return `Draw  Machine Score: ${cScore}. Player Score: ${pScore}`;
+            } else if ((computerSelection == 'paper' && playerSelection == 'rock')
+                || (computerSelection == 'rock' && playerSelection == 'scissors')
+                || (computerSelection == 'scissors' && playerSelection == 'paper')) {
+                alert(`You lost! lmao loser! Computer Selection ${computerSelection} beats Player Selection: ${playerSelection}`);
+                return `Machine Score: ${++cScore}. Player Score: ${pScore}`;
+            }
+            else{
+                alert(`${playerSelection} beats ${computerSelection} .You Win son... Good Now do it again `);
+                return `Machine Score: ${cScore}. Player Score: ${++pScore}`;
+            }
+        }
+        function getInput(){
+            playerSelection=prompt('Rock,Paper...Scissors?','');
+            console.log(playRound(playerSelection,computerSelection));
+        
+        }
+        function game() {
+            cScore=0;
+            pScore=0;
+            for( let i=0;i<5;i++){
+                getInput();
+            }
+            console.log(winner());
+        }
+        function winner(){
+            if(pScore===cScore){
+                return `${pScore} = ${cScore}. Its a tie`
+            }else if(pScore>cScore){
+                return `Player takes the lead with ${pScore} points and clutches it out. You win!`
+            }else{
+                return `Machine takes the lead with ${cScore} points and won.`
+            }
+        }
+        game();
+    </script>
+</body>
+
+</html>
